@@ -1047,12 +1047,10 @@ mod tests {
         let got = decoder.end().unwrap_err();
         assert!(matches!(
             got,
-            CompactSizeDecoderError(E::ValueExceedsLimit(
-                LengthPrefixExceedsMaxError {
-                    limit: MAX_VEC_SIZE,
-                    value: EXCESS_VEC_SIZE,
-                }
-            )),
+            CompactSizeDecoderError(E::ValueExceedsLimit(LengthPrefixExceedsMaxError {
+                limit: MAX_VEC_SIZE,
+                value: EXCESS_VEC_SIZE,
+            })),
         ));
     }
 
@@ -1072,12 +1070,10 @@ mod tests {
         let got = decoder.end().unwrap_err();
         assert!(matches!(
             got,
-            CompactSizeDecoderError(E::ValueExceedsLimit(
-                LengthPrefixExceedsMaxError {
-                    limit: 240,
-                    value: 241,
-                }
-            )),
+            CompactSizeDecoderError(E::ValueExceedsLimit(LengthPrefixExceedsMaxError {
+                limit: 240,
+                value: 241,
+            })),
         ));
     }
 
